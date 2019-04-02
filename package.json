@@ -44,7 +44,7 @@
     "@types/query-string": "5.1.0",
     "@types/react": "16.8.5",
     "@types/react-dom": "16.8.2",
-    "@types/react-redux": "7.0.1",
+    "@types/react-redux": "7.0.6",
     "@types/react-router-dom": "4.3.1",
     "@types/storybook__addon-actions": "3.4.2",
     "@types/storybook__addon-knobs": "4.0.1",
@@ -102,7 +102,6 @@
   "scripts": {
     "build": "webpack --mode production",
     "build-storybook": "build-storybook",
-    "lint": "run-p -l lint:*",
     "lint": "eslint 'src/**/*.ts{,x}'",
     "precommit": "lint-staged",
     "start": "webpack-dev-server --mode development --open --history-api-fallback",

@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-import { useDispatch, useMappedState } from 'redux-react-hook'
+import { connect } from 'react-redux'
+import { AnyAction } from 'redux'
+import { ThunkDispatch } from 'redux-thunk'
 
 import CounterComponent from '../components/Counter'
 import { ReduxState } from '../modules'
@@ -15,24 +17,31 @@ const mapProps = ({ counter }: ReduxState): MapProps => ({
   count: counter.count,
 })
 
-const Counter = () => {
-  const { count } = useMappedState(mapProps)
-  const dispatch = useDispatch()
+type MapDispatch = {
+  increment: () => any
+  decrement: () => any
+}
 
-  const onIncrementClick = React.useCallback(() => dispatch(increment()), [
-    count,
-  ])
-  const onDecrementClick = React.useCallback(() => dispatch(decrement()), [
-    count,
-  ])
+const mapDispatch = (
+  dispatch: ThunkDispatch<ReduxState, null, AnyAction>
+): MapDispatch => ({
+  increment: () => dispatch(increment()),
+  decrement: () => dispatch(decrement()),
+})
 
+const connector = connect(
+  mapProps,
+  mapDispatch
+)
+
+const Counter = connector(({ count, increment, decrement }) => {
   return (
     <CounterComponent
       count={count}
-      onDecrementClick={onDecrementClick}
-      onIncrementClick={onIncrementClick}
+      onDecrementClick={decrement}
+      onIncrementClick={increment}
     />
   )
-}
+})
 
 export default Counter

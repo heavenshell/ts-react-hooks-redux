@@ -12,7 +12,7 @@ type FormProps = FormikProps<Values>
 type ViewProps = {
   isLoading?: boolean
   initialValues: FormProps['initialValues']
-  posts?: any[]
+  posts?: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 type ActionProps = {
@@ -83,6 +83,7 @@ const Subreddit: React.FC<Props> = ({
           itemLayout="vertical"
           size="large"
           dataSource={posts}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           renderItem={(item: any) => (
             <List.Item
               key={item.title}

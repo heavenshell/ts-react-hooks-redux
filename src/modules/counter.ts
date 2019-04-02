@@ -1,7 +1,6 @@
 import { AnyAction, Reducer } from 'redux'
 import { createAggregate } from 'redux-aggregate'
 
-
 // Reducer
 export type State = {
   count: number

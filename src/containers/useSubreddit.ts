@@ -12,7 +12,7 @@ import { fetchSubreddit, queries } from '../modules/subreddit'
 
 type MapProps = {
   isLoading: boolean
-  posts?: any[]
+  posts?: any[] // eslint-disable-line @typescript-eslint/no-explicit-any
   subreddit: string
 }
 

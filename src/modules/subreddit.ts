@@ -12,7 +12,7 @@ const api = axios.create({
 
 type Child = {
   kind: string
-  data: any
+  data: any // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
 export type SubRedditModel = {

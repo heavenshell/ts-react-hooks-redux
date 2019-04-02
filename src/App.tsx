@@ -7,7 +7,6 @@ import './index.less'
 import { configureStore } from './modules'
 import Routes from './routes'
 
-
 const App = () => (
   <StoreContext.Provider value={configureStore()}>
     <Routes />
